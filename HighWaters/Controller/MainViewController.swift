@@ -80,4 +80,11 @@ extension MainViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         return annotationView
     }
     
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        
+        let region = MKCoordinateRegion(center: self.mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+        self.mapView.setRegion(region, animated: true)
+    }
+    
 }
